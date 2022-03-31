@@ -37,6 +37,17 @@ app.get('/', (req, res) => {
     //res.render('index', {iceCreamList})
 })
 
+//Will work with this
+app.post('/', (req, res) => {
+
+})
+
+
+app.get('/top10', (req, res) => {
+    res.render('top10')
+})
+
+
 app.listen(8000, () => {
     console.log("App up and running")
 })
