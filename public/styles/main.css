@@ -1,3 +1,9 @@
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
 .wrapper{
     background-color: hotpink;
     display: flex;
@@ -7,4 +13,9 @@ article{
     width: 500px;
     height: 500px;
     border: 2px solid black;
+}
+
+.header-img {
+    width: 100%;
+    height: auto;
 }
