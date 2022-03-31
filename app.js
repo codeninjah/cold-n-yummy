@@ -10,7 +10,7 @@ app.set('view engine', 'ejs')
 //This also works with testConnection()
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './chinook-kopia.sqlite'
+    storage: '../db/icecream.sqlite'
 });
 
 async function testConnection(){

@@ -4,7 +4,7 @@ class Icecream extends Model{}
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: '../db/icecream.sqlite'
+    storage: './icecream.sqlite'
 });
 
 Icecream.init({

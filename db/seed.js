@@ -1,18 +1,16 @@
 const { Sequelize, Model, DataTypes } = require("sequelize")
 const {Icecream, Users } = require('../models/index.js')
 
-const db = new PromisedDatabase()
-
 //This also works with testConnection()
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: '../db/icecream.sqlite'
+    storage: './icecream.sqlite'
 });
 
 Icecream.sync()
 .then(() => {
     console.log("Icecream tastes table created")
-    return Playlist.bulkCreate([
+    return Icecream.bulkCreate([
         {
             name: "Jordgubbsmak",
             likes: 0,
