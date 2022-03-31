@@ -37,19 +37,6 @@ app.get('/', (req, res) => {
     //res.render('index', {iceCreamList})
 })
 
-async function testConnection(){
-    try {
-        await sequelize.authenticate()
-        console.log("Connection has been established succesfully")
-    } catch (error) {
-        console.error("Unable to connect to the database:" , error)
-    }
-}
-
-testConnection()
-
-
-
 app.listen(8000, () => {
     console.log("App up and running")
 })
