@@ -15,6 +15,7 @@ Icecream.init({
     },
     name: DataTypes.TEXT,
     likes: DataTypes.INTEGER,
+    emails: DataTypes.JSON
 }, {sequelize} )
 
 module.exports = Icecream

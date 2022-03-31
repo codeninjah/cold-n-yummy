@@ -14,26 +14,32 @@ Icecream.sync()
         {
             name: "Jordgubbsmak",
             likes: 0,
+            emails: []
         },
         {
             name: "Chocklad",
             likes: 0,
+            emails: [],
         },
         {
             name: "Caramel",
             likes: 0,
+            emails: [],
         },
         {
             name: "Vanilla",
             likes: 0,
+            emails: [],
         },
         {
             name: "Coco",
             likes: 0,
+            emails: [],
         },
         {
             name: "Banana",
-            likes: 0
+            likes: 0,
+            emails: [],
         },
     ])
     .then((data) => {
