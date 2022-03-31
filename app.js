@@ -33,12 +33,25 @@ app.get('/', (req, res) => {
         .catch((err) => {
             console.log(err)
         })
-
-    //res.render('index', {iceCreamList})
 })
 
-//Will work with this
+//Need to work with this
 app.post('/', (req, res) => {
+    console.log("Works")
+    Icecream.sync()
+    .then(() => {
+        return Icecream.findOne({
+            where: {
+                id: 2,
+            }
+        })
+    })
+    .then((data) => {
+        console.log(data.toJSON())
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 })
 
 

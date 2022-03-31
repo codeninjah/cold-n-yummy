@@ -17,7 +17,11 @@
         <% for(let element of iceCreamList){ %>
             <article> 
                 <%= element.name %> 
-                <button>Vote!</button>
+                <form method="POST" action="/">
+                    <input type="text" placeholder="Your name">
+                    <input type="text" placeholder="Your email">
+                    <button>Vote!</button>
+                </form>
             </article>
         <%}%>
     </div>
