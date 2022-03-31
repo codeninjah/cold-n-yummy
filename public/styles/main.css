@@ -1,0 +1,10 @@
+.wrapper{
+    background-color: hotpink;
+    display: flex;
+}
+
+article{
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+}
