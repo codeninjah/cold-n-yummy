@@ -51,6 +51,7 @@ app.post('/', (req, res) => {
         data.likes++
         data.save()
         console.log(data.toJSON())
+        //console.log("Object is: " + JSON.parse(res.body))
     })
     /*
     .then(() => {
@@ -71,7 +72,7 @@ app.get('/top10', (req, res) => {
     Icecream.sync()
         .then(() => {
             return Icecream.findAll({
-                limit: 2,
+                limit: 10,
                 order: sequelize.literal('likes DESC')
             })
         })
