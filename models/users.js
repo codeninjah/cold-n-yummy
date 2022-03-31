@@ -17,4 +17,4 @@ Users.init({
     email: DataTypes.TEXT,
 }, {sequelize} )
 
-module.exports = Icecream
+module.exports = Users
