@@ -4,7 +4,7 @@ const {Icecream, Users } = require('../models/index.js')
 //This also works with testConnection()
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './icecream.sqlite'
+    storage: './db/icecream.sqlite'
 });
 
 Icecream.sync()
