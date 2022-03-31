@@ -26,12 +26,15 @@ app.get('/', (req, res) => {
                 console.log(element.toJSON())
                 iceCreamList.push(element.toJSON())
             })
+            console.log("Längd på array: " + iceCreamList.length)
+            res.render('index', {iceCreamList})
+            return iceCreamList
         })
         .catch((err) => {
             console.log(err)
         })
 
-    res.render('index')
+    //res.render('index', {iceCreamList})
 })
 
 async function testConnection(){
