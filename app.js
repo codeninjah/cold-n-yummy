@@ -47,8 +47,19 @@ app.post('/', (req, res) => {
         })
     })
     .then((data) => {
+        data.name = "Alex"
+        data.likes++
+        data.save()
         console.log(data.toJSON())
     })
+    /*
+    .then(() => {
+        return Icecream.update({name: "Alex"})//data.update({likes: likes++})
+    })
+    .then((data) => {
+        console.log(data)
+    })
+    */
     .catch((err) => {
         console.log(err)
     })
