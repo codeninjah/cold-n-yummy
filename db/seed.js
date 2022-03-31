@@ -18,17 +18,17 @@ Icecream.sync()
         },
         {
             name: "Chocklad",
-            likes: 0,
+            likes: 7,
             emails: [],
         },
         {
             name: "Caramel",
-            likes: 0,
+            likes: 3,
             emails: [],
         },
         {
             name: "Vanilla",
-            likes: 0,
+            likes: 4,
             emails: [],
         },
         {
@@ -38,7 +38,7 @@ Icecream.sync()
         },
         {
             name: "Banana",
-            likes: 0,
+            likes: 8,
             emails: [],
         },
     ])

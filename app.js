@@ -39,12 +39,30 @@ app.get('/', (req, res) => {
 
 //Will work with this
 app.post('/', (req, res) => {
-
 })
 
 
 app.get('/top10', (req, res) => {
-    res.render('top10')
+    const iceCreamList = []
+    Icecream.sync()
+        .then(() => {
+            return Icecream.findAll({
+                limit: 2,
+                order: sequelize.literal('likes DESC')
+            })
+        })
+        .then((data) => {
+            data.forEach((element) => {
+                console.log(element.toJSON())
+                iceCreamList.push(element.toJSON())
+            })
+            console.log("Längd på array: " + iceCreamList.length)
+            res.render('top10', {iceCreamList})
+            return iceCreamList
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
 
 

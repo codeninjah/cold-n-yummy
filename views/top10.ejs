@@ -10,5 +10,13 @@
 <body>
     <img class="header-img" src="pictures/coldnyummy.png">
     <h1>This is TOP 10</h1>
+    <div class="wrapper">
+        <% for(let element of iceCreamList){ %>
+            <article> 
+                <%= element.name %> 
+                <%= element.likes %>
+            </article>
+        <%}%>
+    </div>
 </body>
 </html>
