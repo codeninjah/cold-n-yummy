@@ -2,12 +2,15 @@ const express = require('express')
 const ejs = require('ejs')
 const { Sequelize, Model, DataTypes } = require("sequelize")
 const {Icecream, Users} = require('./models/index')
+const bodyParser = require('body-parser')
 
 
 const app = express()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //This also works with testConnection()
 const sequelize = new Sequelize({
@@ -38,11 +41,30 @@ app.get('/', (req, res) => {
 //Need to work with this
 app.post('/', (req, res) => {
     console.log("Works")
+    const { username, email, ice_id } = req.body
+    console.log(username)
+    console.log("Id is " + ice_id)
+
+    Users.sync()
+    .then(() => {
+        return Users.create({
+            name: username,
+            email: email
+        })
+    })
+    .then((data) => {
+        console.log(data.toJSON())
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+
+
     Icecream.sync()
     .then(() => {
         return Icecream.findOne({
             where: {
-                id: 2,
+                ice_id: 2,
             }
         })
     })
