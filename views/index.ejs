@@ -15,8 +15,10 @@
     <a href="top10">Go to TOP 10</a>
     <div class="wrapper">
         <% for(let element of iceCreamList){ %>
+            <% let id = element.ice_id %>
             <article> 
                 <%= element.name %> 
+                ID is: <%= id %>
                 <form method="POST" action="/">
                     <input type="text" placeholder="Your name">
                     <input type="text" placeholder="Your email">

@@ -8,14 +8,13 @@ const sequelize = new Sequelize({
 });
 
 Icecream.init({
-    id: { 
+    ice_id: { 
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
     name: DataTypes.TEXT,
     likes: DataTypes.INTEGER,
-    emails: DataTypes.JSON
 }, {sequelize} )
 
 module.exports = Icecream
