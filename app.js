@@ -64,7 +64,7 @@ app.post('/', (req, res) => {
     .then(() => {
         return Icecream.findOne({
             where: {
-                ice_id: 2,
+                ice_id: ice_id,
             }
         })
     })

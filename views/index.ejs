@@ -15,15 +15,15 @@
     <a href="top10">Go to TOP 10</a>
     <div class="wrapper">
         <% for(let element of iceCreamList){ %>
-            <% let id = element.ice_id %>
+            <% let _id = element.ice_id %>
             <article> 
                 <%= element.name %> 
-                ID is: <%= id %>
+                ID is: <%= _id %>
             </article>
             <form action="/" method="POST">
                 <input type="text" name="username" placeholder="Your name">
                 <input type="text" name="email" placeholder="Your email">
-                <input type="hidden" name="ice_id" id="ice_id">
+                <input type="hidden" name="ice_id" value="<%= _id %>">
                 <button>Vote!</button>
             </form>
         <%}%>
