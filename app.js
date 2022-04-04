@@ -45,6 +45,11 @@ app.post('/', (req, res) => {
     console.log(username)
     console.log("Id is " + ice_id)
 
+    //Kollar om user finns utifrån angivet email
+    const user = Users.findOne({where: {email: email}})
+
+    // Om user inte finns, då skapas det ett
+    if(user === null) {
     Users.sync()
     .then(() => {
         return Users.create({
@@ -58,6 +63,10 @@ app.post('/', (req, res) => {
     .catch((err) => {
         console.error(err)
     })
+}
+    else{
+        console.log("User already exists")
+    }
 
 
     Icecream.sync()
@@ -69,7 +78,6 @@ app.post('/', (req, res) => {
         })
     })
     .then((data) => {
-        data.name = "Alex"
         data.likes++
         data.save()
         console.log(data.toJSON())
