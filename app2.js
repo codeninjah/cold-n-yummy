@@ -39,7 +39,6 @@ app.get('/', (req, res) => {
 })
 
 //Need to work with this
-//Posta till en egen endpoint istället och sedan redirect till index
 app.post('/vote', (req, res) => {
     console.log("Works")
     const { username, email, ice_id } = req.body
@@ -49,14 +48,15 @@ app.post('/vote', (req, res) => {
     //Funktion som kollar om user finns utifrån angivet email
     async function userVotes() {
     const user = await Users.findOne({where: {email: email}})
-
+    const icecream = await Icecream.findOne({where: {ice_id: ice_id}})
     // Om user inte finns, då skapas det ett
     if(user === null){
         Users.sync()
         .then(() => {
             return Users.create({
                 name: username,
-                email: email
+                email: email,
+                ice_id: ice_id
             })
         })
         .then((data) => {
@@ -68,7 +68,7 @@ app.post('/vote', (req, res) => {
         })
     }
 
-    return user
+    //return user
 }
 
     userVotes()
@@ -84,7 +84,6 @@ app.post('/vote', (req, res) => {
     .then((data) => {
             data.likes++
             data.save()
-            //user.save()
             console.log(data.toJSON())
     })
     .catch((err) => {
