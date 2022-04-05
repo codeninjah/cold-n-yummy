@@ -39,16 +39,15 @@ app.get('/', (req, res) => {
 })
 
 //Need to work with this
-app.post('/vote', (req, res) => {
+app.post('/vote', async(req, res) => {
     console.log("Works")
     const { username, email, ice_id } = req.body
     console.log(username)
     console.log("Id is " + ice_id)
 
-    //Funktion som kollar om user finns utifrån angivet email
-    async function userVotes() {
     const user = await Users.findOne({where: {email: email}})
     const icecream = await Icecream.findOne({where: {ice_id: ice_id}})
+
     // Om user inte finns, då skapas det ett
     if(user === null){
         Users.sync()
@@ -56,7 +55,7 @@ app.post('/vote', (req, res) => {
             return Users.create({
                 name: username,
                 email: email,
-                ice_id: ice_id
+                ice_id: 0
             })
         })
         .then((data) => {
@@ -67,11 +66,6 @@ app.post('/vote', (req, res) => {
             console.error(err)
         })
     }
-
-    //return user
-}
-
-    userVotes()
 
     Icecream.sync()
     .then(() => {
@@ -84,8 +78,12 @@ app.post('/vote', (req, res) => {
     .then((data) => {
             data.likes++
             data.save()
+            //user.ice_id = data.ice_id
+            //user.save()
             console.log(data.toJSON())
-    })
+        }
+        
+    )
     .catch((err) => {
         console.log(err)
     })
