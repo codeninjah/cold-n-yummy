@@ -39,14 +39,16 @@ app.get('/', (req, res) => {
 })
 
 //Need to work with this
-app.post('/', (req, res) => {
+//Posta till en egen endpoint istället och sedan redirect till index
+app.post('/vote', (req, res) => {
     console.log("Works")
     const { username, email, ice_id } = req.body
     console.log(username)
     console.log("Id is " + ice_id)
 
-    //Kollar om user finns utifrån angivet email
-    const user = Users.findOne({where: {email: email}})
+    //Funktion som kollar om user finns utifrån angivet email
+    async function userVotes() {
+    const user = await Users.findOne({where: {email: email}})
 
     // Om user inte finns, då skapas det ett
     if(user === null){
@@ -59,11 +61,17 @@ app.post('/', (req, res) => {
         })
         .then((data) => {
             console.log(data.toJSON())
+            return data
         })
         .catch((err) => {
             console.error(err)
         })
+    }
+
+    return user
 }
+
+    userVotes()
 
     Icecream.sync()
     .then(() => {
@@ -82,6 +90,8 @@ app.post('/', (req, res) => {
     .catch((err) => {
         console.log(err)
     })
+
+    res.redirect('/')
 })
 
 

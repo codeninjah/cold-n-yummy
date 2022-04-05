@@ -19,13 +19,14 @@
             <article> 
                 <%= element.name %> 
                 ID is: <%= _id %>
+                <form action="/vote" method="POST">
+                    <input type="text" name="username" placeholder="Your name">
+                    <input type="text" name="email" placeholder="Your email">
+                    <input type="hidden" name="ice_id" value="<%= _id %>">
+                    <button>Vote!</button>
+                </form>
             </article>
-            <form action="/" method="POST">
-                <input type="text" name="username" placeholder="Your name">
-                <input type="text" name="email" placeholder="Your email">
-                <input type="hidden" name="ice_id" value="<%= _id %>">
-                <button>Vote!</button>
-            </form>
+            
         <%}%>
     </div>
 </body>
