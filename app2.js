@@ -2,15 +2,14 @@ const express = require('express')
 const ejs = require('ejs')
 const { Sequelize, Model, DataTypes } = require("sequelize")
 const {Icecream, Users} = require('./models/index')
-const bodyParser = require('body-parser')
 
 
 const app = express()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 //This also works with testConnection()
 const sequelize = new Sequelize({
