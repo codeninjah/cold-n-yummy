@@ -55,7 +55,6 @@ app.post('/vote', async(req, res) => {
             return Users.create({
                 name: username,
                 email: email,
-                ice_id: 0
             })
         })
         .then((data) => {
@@ -65,30 +64,30 @@ app.post('/vote', async(req, res) => {
         .catch((err) => {
             console.error(err)
         })
-    }
-
-    Icecream.sync()
-    .then(() => {
-        return Icecream.findOne({
-            where: {
-                ice_id: ice_id,
-            }
+    
+        Icecream.sync()
+        .then(() => {
+            return Icecream.findOne({
+                where: {
+                    ice_id: ice_id,
+                }
+            })
         })
-    })
-    .then((data) => {
-            data.likes++
-            data.save()
-            //user.ice_id = data.ice_id
-            //user.save()
-            console.log(data.toJSON())
-        }
-        
-    )
-    .catch((err) => {
-        console.log(err)
-    })
+        .then((data) => {
+                data.likes++
+                data.save()
+                //user.ice_id = data.ice_id
+                //user.save()
+                console.log(data.toJSON())
+            }
+            
+        )
+        .catch((err) => {
+            console.log(err)
+        })        
+}
+res.redirect('/')
 
-    res.redirect('/')
 })
 
 
