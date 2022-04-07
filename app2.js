@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 //This also works with testConnection()
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: '../db/icecream.sqlite'
+    storage: './db/icecream.sqlite'
 });
 
 app.get('/', (req, res) => {
