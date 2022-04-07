@@ -41,6 +41,36 @@ Icecream.sync()
             likes: 8,
             emails: [],
         },
+        {
+            name: "Apple",
+            likes: 0,
+            emails: []
+        },
+        {
+            name: "Nougat",
+            likes: 7,
+            emails: [],
+        },
+        {
+            name: "Lakris",
+            likes: 3,
+            emails: [],
+        },
+        {
+            name: "Vanilla-Coco",
+            likes: 4,
+            emails: [],
+        },
+        {
+            name: "Pear",
+            likes: 0,
+            emails: [],
+        },
+        {
+            name: "Surprise",
+            likes: 8,
+            emails: [],
+        },
     ])
     .then((data) => {
         data.forEach((element) => {
